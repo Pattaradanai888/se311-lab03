@@ -2,17 +2,21 @@
 import PassengerCard from '@/components/PassengerCard.vue'
 import PassengerService from '@/services/PassengerService'
 import type { Passenger } from '@/type'
-import { ref } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 
 const passengers = ref<Passenger[]>(null)
 
-PassengerService.getPassenger()
-  .then((response) => {
-    passengers.value = response.data
+onMounted(() => {
+  watchEffect(() => {
+    PassengerService.getPassenger()
+      .then((response) => {
+        passengers.value = response.data
+      })
+      .catch((error) => {
+        console.error('There was an error!', error)
+      })
   })
-  .catch((error) => {
-    console.error('There was an error!', error)
-  })
+})
 </script>
 
 <template>
@@ -32,3 +36,4 @@ PassengerService.getPassenger()
   align-items: flex-start;
 }
 </style>
+onMounted, , watchEffect

@@ -11,7 +11,7 @@ export interface Passenger {
   airlineId: number
 }
 
-export interface airline {
+export interface Airline {
   id: number
   AirlineName: string
   email: string
