@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PassengerCard from '@/components/PassengerCard.vue'
 import PassengerService from '@/services/PassengerService'
-import type { Passenger } from '@/types'
+import type { Passenger } from '@/type'
 import { ref } from 'vue'
 
 const passengers = ref<Passenger[]>(null)

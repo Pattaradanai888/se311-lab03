@@ -15,5 +15,8 @@ export default {
   },
   getDetailById(id: number) {
     return apiClient('/passenger/' + id)
+  },
+  getAirlineById(id: number) {
+    return apiClient('/airline/' + id)
   }
 }

@@ -20,7 +20,8 @@ PassengerService.getDetailById(Number(props.id))
   <div v-if="passenger">
     <h1>{{ passenger.first_name }} {{ passenger.last_name }}</h1>
     <div id="nav">
-      <router-link :to="{ name: 'passenger-detail', params: { id } }"> Details </router-link>
+      <router-link :to="{ name: 'passenger-detail', params: { id } }"> Details </router-link> |
+      <router-link :to="{ name: 'passenger-airline', params: { id } }"> Airline </router-link>
     </div>
     <RouterView :passenger="passenger"></RouterView>
   </div>

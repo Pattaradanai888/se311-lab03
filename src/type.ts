@@ -10,3 +10,10 @@ export interface Passenger {
   trabelDate: string
   airlineId: number
 }
+
+export interface airline {
+  id: number
+  AirlineName: string
+  email: string
+  address: string
+}
