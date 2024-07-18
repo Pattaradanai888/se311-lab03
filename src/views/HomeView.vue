@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import PassengerCard from '@/components/PassengerCard.vue'
+import PassengerService from '@/services/PassengerService'
 import type { Passenger } from '@/types'
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { ref } from 'vue'
 
 const passengers = ref<Passenger[]>(null)
-onMounted(() => {
-  axios
-    .get('https://my-json-server.typicode.com/se331-2022/passengerdb/passenger?_page=1&_limit=5')
-    .then((response) => {
-      passengers.value = response.data
-    })
-    .catch((error) => {
-      console.error('There was an error!', error)
-    })
-})
+
+PassengerService.getPassenger()
+  .then((response) => {
+    passengers.value = response.data
+  })
+  .catch((error) => {
+    console.error('There was an error!', error)
+  })
 </script>
 
 <template>

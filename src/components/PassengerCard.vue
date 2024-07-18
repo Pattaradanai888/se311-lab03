@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import type { Passenger } from '@/type'
 defineProps<{
   passenger: Passenger
@@ -7,12 +6,17 @@ defineProps<{
 </script>
 
 <template>
-  <div class="event-class">
-    <div class="event-type">
-      <h2>{{ passenger.first_name }} {{ passenger.last_name }}</h2>
-      <span>{{ passenger.id }}</span>
+  <RouterLink
+    class="passenger-link"
+    :to="{ name: 'passenger-detail', params: { id: passenger?.id } }"
+  >
+    <div class="event-class">
+      <div class="event-type">
+        <h2>{{ passenger?.first_name }} {{ passenger?.last_name }}</h2>
+        <span>{{ passenger?.id }}</span>
+      </div>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <style scoped>
@@ -27,5 +31,9 @@ defineProps<{
 .event-type:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.event-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
